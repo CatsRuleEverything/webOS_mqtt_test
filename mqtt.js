@@ -28,7 +28,6 @@ client.on('message', function(topic, message){
     
     console.log("전달 완료");
     
-    
 })
 
 
