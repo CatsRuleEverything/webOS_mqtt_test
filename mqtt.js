@@ -3,7 +3,7 @@ const { resolve } = require('path');
 const { getEnvironmentData } = require('worker_threads');
 
 const options = {
-    host: '',
+    host: '34.82.211.143',
     port: 1883
 
 };
@@ -16,7 +16,7 @@ console.log("connecting");
 client = mqtt.connect(options);
 
 console.log("connected");
-client.subscribe('temperature');
+client.subscribe('esp32/doorOpen');
 console.log("subscribe");
 
 client.on('message', function(topic, message){

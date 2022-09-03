@@ -25,7 +25,7 @@ service.register("getData", function(message) {
   
 
     const options = {
-        host: '',
+        host: '34.82.211.143',
         port: 1883
 
     };
@@ -35,19 +35,14 @@ service.register("getData", function(message) {
     const client = mqtt.connect(options);
 
 
-    client.subscribe('doorOpen');
+    client.subscribe('esp32/doorOpen');
 
     client.on('message', function(topic, msg){
-        if(msg==1){
-            console.log("닫힘");
-          
-        }
-        else 
-        console.log(`토픽:${topic.toString()}, 메시지: ${msg.toString()}`)
+        console.log("전달 완료/ 상태 : "+msg);
 
         message.respond({
             returnValue: true,
-            Response: "Hello, " + "aaaaa" + "!"
+            Response: msg.toString()
         });
     });
 

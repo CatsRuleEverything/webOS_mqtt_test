@@ -37,7 +37,7 @@ SPDX-License-Identifier: Apache-2.0
         bridge.onservicecallback = (msg) => {
             console.log(msg);
             let res = JSON.parse(msg);
-            document.getElementById("txt_msg").innerHTML = res.Response;
+            document.getElementById("txt_msg").innerHTML =res.Response;
         };
 
         bridge.call(url, JSON.stringify(params));
