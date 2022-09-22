@@ -5,7 +5,7 @@ const { getEnvironmentData } = require('worker_threads');
 const fs = require("fs");
 
 const options = {
-    host: '34.82.211.143',
+    host: 'broker.hivemq.com'
     port: 1883
 
 };
@@ -18,12 +18,11 @@ console.log("connecting");
 client = mqtt.connect(options);
 
 console.log("connected");
-client.subscribe('/picture');
+console.log("publishCam");
+client.publish('espCam/img/get','1');
+        
 //client.subscribe('esp32/doorOpen');
 console.log("subscribe","1");
-
-client.publish('TakeAPicture',"1")
-
 client.on('message', function(topic, message){
     
     fs.writeFile('pic.jpeg', message, err => {
