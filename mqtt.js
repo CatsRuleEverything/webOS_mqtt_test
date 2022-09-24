@@ -5,7 +5,7 @@ const { getEnvironmentData } = require('worker_threads');
 const fs = require("fs");
 
 const options = {
-    host: 'broker.hivemq.com'
+    host: 'broker.hivemq.com',
     port: 1883
 
 };
